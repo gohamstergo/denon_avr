@@ -697,6 +697,30 @@
       "step": 5,
       "doc": "Sleep timer in minutes ('OFF' when disabled). The receiver does not publish a range (its SleepTimer block is empty), so the protocol defined range is given here as a fallback."
     },
+    "trigger_1": {
+      "group": "system",
+      "scope": "core",
+      "kind": "onoff",
+      "query": "TR1 ?",
+      "prefix": "TR1 ",
+      "on": "ON",
+      "off": "OFF",
+      "icon": "mdi:flash",
+      "name": "Trigger 1",
+      "doc": "12 V trigger output 1 (telnet 'TR1 ON|OFF')."
+    },
+    "trigger_2": {
+      "group": "system",
+      "scope": "core",
+      "kind": "onoff",
+      "query": "TR2 ?",
+      "prefix": "TR2 ",
+      "on": "ON",
+      "off": "OFF",
+      "icon": "mdi:flash",
+      "name": "Trigger 2",
+      "doc": "12 V trigger output 2 (telnet 'TR2 ON|OFF')."
+    },
     "eco_mode": {
       "group": "system",
       "scope": "feature",
