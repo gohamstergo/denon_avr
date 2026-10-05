@@ -334,6 +334,14 @@
       }
     }
   },
+    "actions": {
+    "doc": "Momentary telnet commands with no state and no echo (the receiver sends nothing back). Each entry becomes a button; 'command' is sent verbatim. Verified on an AVR-X8500H.",
+    "menu_info": {
+      "command": "MNINF",
+      "icon": "mdi:information-outline",
+      "name": "Info"
+    }
+  },
   "controls": {
     "system_power": {
       "group": "power",
