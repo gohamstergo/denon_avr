@@ -1,4 +1,5 @@
 # Denon AVR
+## THIS IS A FORK. DON'T USE THIS ONE. USE THE ORIGINAL FROM THE DEV BELOW.
 
 [![GitHub Release][releases-shield]][releases]
 [![Maintainer][maintainer-shield]][maintainer]
