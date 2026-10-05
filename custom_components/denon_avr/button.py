@@ -25,14 +25,31 @@ async def async_setup_entry(
     """Create the graphic-EQ action buttons when the receiver supports them."""
 
     coordinator = entry.runtime_data
-    entities: list[ButtonEntity] = []
+    entities: list[ButtonEntity] = [
+        DenonAvrActionButton(coordinator, action_id, data)
+        for action_id, data in coordinator.device.profile.actions.items()
+    ]
     if coordinator.device.graphic_eq.supported:
         entities.append(DenonAvrEqApply(coordinator))
         entities.append(DenonAvrEqCurveCopy(coordinator))
         entities.append(DenonAvrEqSetDefaults(coordinator))
     async_add_entities(entities)
 
+class DenonAvrActionButton(DenonAvrEntity, ButtonEntity):
+    """A stateless action button backed by a profile action command."""
 
+    def __init__(
+        self, coordinator: DenonAvrCoordinator, action_id: str, data: dict
+    ) -> None:
+        super().__init__(coordinator, f"button_{action_id}")
+        self._action_id = action_id
+        self._attr_translation_key = action_id
+        icon = data.get("icon")
+        if icon:
+            self._attr_icon = icon
+
+    async def async_press(self) -> None:
+        await self.coordinator.device.async_send_action(self._action_id)
 class DenonAvrEqApply(DenonAvrEntity, ButtonEntity):
     """Write the edited band curve to the receiver.
 
