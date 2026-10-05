@@ -300,6 +300,9 @@
       }
     },
     "button": {
+      "menu_info": {
+        "name": "Info"
+      },
       "eq_apply": {
         "name": "Toepassen"
       },
