@@ -758,6 +758,15 @@ class DenonAvrDevice:
             return
         await self._send(f"{spec.prefix}{argument}")
 
+    async def async_send_action(self, action_id: str) -> None:
+        """Send a profile action command (a stateless button press)."""
+
+        action = self._profile.actions.get(action_id)
+        if not action:
+            return
+        command = action.get("command")
+        if command:
+            await self._send(command)
     async def async_set_channel_trim(self, code: str, db: float) -> None:
         """Set a per channel volume trim in dB via the CV command."""
 
