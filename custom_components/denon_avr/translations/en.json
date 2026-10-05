@@ -212,6 +212,12 @@
       "subwoofer_switch": {
         "name": "Subwoofer Switch"
       },
+      "trigger_1": {
+        "name": "Trigger 1"
+      },
+      "trigger_2": {
+        "name": "Trigger 2"
+      },
       "all_zone_stereo": {
         "name": "All Zone Stereo"
       },
