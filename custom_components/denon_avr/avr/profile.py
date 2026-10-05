@@ -102,6 +102,12 @@ class ProtocolProfile:
             if name != "doc"
         }
         self.introspection: dict[str, dict[str, Any]] = raw.get("introspection", {})
+                # Momentary action commands (no state, no echo), exposed as buttons.
+        self.actions: dict[str, dict[str, Any]] = {
+            action_id: data
+            for action_id, data in raw.get("actions", {}).items()
+            if action_id != "doc"
+        }
         self.readonly: dict[str, dict[str, Any]] = raw.get("readonly", {})
         self.refresh: dict[str, Any] = raw.get("refresh", {})
         # Receiver-type classification (device hw_version), by CommApiVers /
